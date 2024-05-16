@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native'
 import React from 'react'
+import { handleSignOut } from '../services/authService'
 
 const ProfileScreen = () => {
 
     // TODO: handle logout
-    const handleLogout = () => {}
+    const handleSignout = () => {
+        handleSignOut()
+      }
 
     return (
         <SafeAreaView>
@@ -18,7 +21,7 @@ const ProfileScreen = () => {
                 <Button 
                     title="Sign Out"
                     color="green"
-                    onPress={handleLogout} />
+                    onPress={handleSignout} />
             </View>
         </SafeAreaView>
     )

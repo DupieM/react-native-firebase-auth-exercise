@@ -2,7 +2,7 @@ import { TextInput, SafeAreaView, StyleSheet, Text, View, TouchableOpacity } fro
 import React, { useState } from 'react'
 import { handleLogin } from '../services/authService';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,9 +34,9 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         {/* TODO: Add Register Navigation */}
-        {/* <TouchableOpacity style={styles.button} onPress={goToRegister}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.buttonText}>Go to Register</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>  
       
     </SafeAreaView>

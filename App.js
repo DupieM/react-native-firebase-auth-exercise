@@ -7,8 +7,11 @@ import ProfileScreen from './screens/ProfileScreen';
 import { useEffect, useState } from 'react';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import SignInScreen from './screens/RegisterScreen';
 
 // TODO: Navigation Container
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
@@ -30,13 +33,22 @@ export default function App() {
   }, [])
 
   return (
+      
+
     <>
       {loggedIn ? (
         <ProfileScreen />
       ) : (
-        <LoginScreen />
+        <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={LoginScreen}/>
+          <Stack.Screen name="SignUp" component={SignInScreen}/>
+        </Stack.Navigator>
+      </NavigationContainer>
       )}
     </>
+
+    // <SignInScreen/>
   );
 }
 
