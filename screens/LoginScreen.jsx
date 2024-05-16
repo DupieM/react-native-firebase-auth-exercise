@@ -1,5 +1,6 @@
 import { TextInput, SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import { handleLogin } from '../services/authService';
 
 const LoginScreen = () => {
 
@@ -7,7 +8,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
 
   //   TODO: Login Function
-  const login = () => {}
+  const login = () => {handleLogin(email, password)}
 
   return (
     <SafeAreaView >
@@ -33,7 +34,9 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         {/* TODO: Add Register Navigation */}
-
+        {/* <TouchableOpacity style={styles.button} onPress={goToRegister}>
+            <Text style={styles.buttonText}>Go to Register</Text>
+        </TouchableOpacity> */}
       </View>  
       
     </SafeAreaView>
